@@ -1,0 +1,30 @@
+{
+  "name": "ahwei",
+  "description": "My first Chrome extension.",
+  "version": "0.1",
+  "permissions": [
+    "tabs",
+    "*://soundcloud.com/*"
+  ],
+
+  "background": {
+    "scripts": ["soundmanager2/script/soundmanager2.js", "jquery-1.10.2.js", "background.js"],
+    "persistent": false
+  },
+
+  "browser_action": {
+  	"default_icon": "icon.png",
+    "default_title": "That's the tool tip",
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [{
+        "matches": ["*://*/*"],
+        "css": ["content.css"],
+        "js": ["jquery-1.10.2.js", "content.js"]
+    }],
+
+  // "omnibox": { "keyword" : "holy" },
+  "manifest_version" : 2
+  // "web_accessible_resources": ["mutation-summary.js"]
+}
